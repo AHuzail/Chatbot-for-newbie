@@ -124,7 +124,7 @@ st.markdown("<div class='decoration-line'></div>", unsafe_allow_html=True)
 st.markdown(
     """
     <div class='info-box'>
-        <p>Welcome! I'm here to help you explore exciting career paths in technology. Ask me about web development, machine learning, data science, and more. Let's discover your ideal career together!</p>
+        <p>Welcome! I'm here to help you explore exciting career paths in technology. Ask me about anything. Let's discover your ideal career together!</p>
     </div>
     """,
     unsafe_allow_html=True,
