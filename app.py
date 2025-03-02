@@ -149,8 +149,7 @@ if prompt := st.chat_input("What career paths are you curious about?"):
                 st.error(tool_output)
                 logging.error(f"DuckDuckGo search error: {e}")
 
-    # --- Construct Prompt for Gemini, Including History ---
-    full_prompt = "You are a friendly and encouraging career advisor...\n\n"  # System prompt
+    full_prompt = "You are a friendly and encouraging career advisor...\n\n" 
     for msg in st.session_state.messages:
         full_prompt += f"{msg['role']}: {msg['content']}\n"
 
@@ -163,10 +162,9 @@ if prompt := st.chat_input("What career paths are you curious about?"):
         full_response = ""
 
         try:
-            # Corrected Gemini API call
             response = model.generate_content(
                 [
-                    {"role": "user", "parts": [full_prompt]},  # All context in user prompt
+                    {"role": "user", "parts": [full_prompt]}, 
                 ],
                 stream=True
             )
