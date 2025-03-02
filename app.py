@@ -5,12 +5,9 @@ from dotenv import load_dotenv
 from duckduckgo_search import DDGS
 import logging
 
-
 st.set_page_config(page_title="Gemini Career Chatbot", page_icon=":mortar_board:")
 
-
 logging.basicConfig(level=logging.ERROR)
-
 
 st.markdown(
     """
@@ -99,28 +96,22 @@ st.markdown(
 
 load_dotenv()
 
-# --- Sidebar ---
 with st.sidebar:
     st.title("🎓 Career Guide")
     st.markdown("Powered by **Google Gemini**")
     st.markdown("Your AI career advisor. Get personalized guidance.")
     st.markdown("---")
 
-# --- Initialize Gemini Client ---
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model = genai.GenerativeModel('gemini-2.0-flash')
 
-# --- Initialize chat history ---
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# --- Main App Content ---
 st.title("Gemini Career Chatbot")
 
-# Decorative Line
 st.markdown("<div class='decoration-line'></div>", unsafe_allow_html=True)
 
-# Informational Box
 st.markdown(
     """
     <div class='info-box'>
@@ -130,18 +121,15 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# --- Display chat messages from history on app rerun ---
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-
-# --- Chat Input ---
+        
 if prompt := st.chat_input("What career paths are you curious about?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    # --- Tool Handling & Gemini Response ---
     bot_response = ""
     tool_output = None
 
