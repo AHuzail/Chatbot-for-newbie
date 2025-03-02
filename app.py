@@ -5,13 +5,13 @@ from dotenv import load_dotenv
 from duckduckgo_search import DDGS
 import logging
 
-# --- Setup ---
+
 st.set_page_config(page_title="Gemini Career Chatbot", page_icon=":mortar_board:")
 
-# Configure logging
+
 logging.basicConfig(level=logging.ERROR)
 
-# Custom CSS for a more colorful look
+
 st.markdown(
     """
     <style>
@@ -97,7 +97,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-load_dotenv()  # Load environment variables from .env file
+load_dotenv()
 
 # --- Sidebar ---
 with st.sidebar:
